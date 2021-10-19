@@ -1,0 +1,3 @@
+Bài toán FizzBuzz:
+	Viết 1 chương trình in ra các số từ 1 --> 100. Nhưng đối với số chia hết cho 3 thì in ra Fizz, 
+	số chia hết cho 5 thì in ra Buzz, cac số chia hết cho cả 3 và 5 thì in ra FizzBuzz.
