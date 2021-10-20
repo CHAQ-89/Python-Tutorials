@@ -9,29 +9,31 @@ def myClick(number):
     # Tao bien lay gia tri tu entry
     current = e.get()
     e.delete(0, END)
-
+    e.delete(0,)
     # Cong voi gia tri tiep theo
     e.insert(0, str(current) + str(number))
 
 
-def add():
+def equal():
     # Lay gia tri tu` entry
-    s = e.get()
+    #s = e.get()
     # Tach chuoi~ so' truoc va sau dau '+'
-    s1 = s[0:s.index("+")]
-    s2 = s[s.index("+")+1:]
+    #s1 = s[0:s.index("+")]
+    #s2 = s[s.index("+")+1:]
     # Tong 2 so'
-    s3 = int(s1) + int(s2)
+    #s3 = int(s1) + int(s2)
+    second_num = e.get()
     # Xoa
     e.delete(0, END)
     # Hien thi ket qua
-    e.insert(0, str(s3))
+    e.insert(0, first_number + int(second_num))
 
 
 def button_adds():
-    result = add()
-    e.insert(0, f"{result} + ")
-    return
+    #first_num = e.get()
+    global first_number
+    first_number = int(first_num)
+    e.delete(0, END)
 
 
 def clear():
@@ -62,7 +64,7 @@ button0 = Button(root, text="0", padx=40,
 button_add = Button(root, text="+", padx=39,
                     pady=20, command=button_adds)
 button_equal = Button(root, text="=", padx=89,
-                      pady=20, command=add)
+                      pady=20, command=equal)
 button_clear = Button(root, text="clear", padx=79,
                       pady=20, command=clear)
 button9.grid(row=1, column=0)
