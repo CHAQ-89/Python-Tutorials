@@ -4,14 +4,18 @@ root.title("Simple Calculator")
 e = Entry(root)
 e.grid(row=1, columnspan=4, sticky=N+S+E+W)
 
+i = 0
 
-def myClick(number):
+
+def get_number(number):
     # Tao bien lay gia tri tu entry
-    current = e.get()
-    e.delete(0, END)
-    e.delete(0,)
+    # current = e.get()
+    # e.delete(0, END)
     # Cong voi gia tri tiep theo
-    e.insert(0, str(current) + str(number))
+    # e.insert(0, str(current) + str(number))
+    global i
+    e.insert(i, number)
+    i += 1
 
 
 def equal():
@@ -43,37 +47,34 @@ def clear():
 
 
 # Dung lambda de tao ham lay gia tri tu button
-Button(root, text="9", command=lambda: myClick(9)).grid(
+Button(root, text="9", command=lambda: get_number(9)).grid(
     row=2, column=2, sticky=N+S+E+W)
-Button(root, text="8", command=lambda: myClick(8)).grid(
+Button(root, text="8", command=lambda: get_number(8)).grid(
     row=2, column=1, sticky=N+S+E+W)
-Button(root, text="7", command=lambda: myClick(7)).grid(
+Button(root, text="7", command=lambda: get_number(7)).grid(
     row=2, column=0, sticky=N+S+E+W)
-Button(root, text="+", command=lambda: myClick(6)
-       ).grid(row=2, column=3, sticky=N+S+E+W)
+Button(root, text="+").grid(row=2, column=3, sticky=N+S+E+W)
 
-Button(root, text="6", command=lambda: myClick(5)).grid(
+Button(root, text="6", command=lambda: get_number(6)).grid(
     row=3, column=2, sticky=N+S+E+W)
-Button(root, text="5", command=lambda: myClick(4)).grid(
+Button(root, text="5", command=lambda: get_number(5)).grid(
     row=3, column=1, sticky=N+S+E+W)
-Button(root, text="4", command=lambda: myClick(3)).grid(
+Button(root, text="4", command=lambda: get_number(4)).grid(
     row=3, column=0, sticky=N+S+E+W)
-Button(root, text="-", command=lambda: myClick(3)
-       ).grid(row=3, column=3, sticky=N+S+E+W)
+Button(root, text="-").grid(row=3, column=3, sticky=N+S+E+W)
 
-Button(root, text="3", command=lambda: myClick(2)).grid(
+Button(root, text="3", command=lambda: get_number(3)).grid(
     row=4, column=2, sticky=N+S+E+W)
-Button(root, text="2", command=lambda: myClick(1)).grid(
+Button(root, text="2", command=lambda: get_number(2)).grid(
     row=4, column=1, sticky=N+S+E+W)
-Button(root, text="1", command=lambda: myClick(0)).grid(
+Button(root, text="1", command=lambda: get_number(1)).grid(
     row=4, column=0, sticky=N+S+E+W)
-Button(root, text="*", command=lambda: myClick(0)
-       ).grid(row=4, column=3, sticky=N+S+E+W)
+Button(root, text="*").grid(row=4, column=3, sticky=N+S+E+W)
 
-Button(root, text="C", command=button_adds).grid(
-    row=5, column=0, sticky=N+S+E+W)
-Button(root, text="0", command=equal).grid(row=5, column=1, sticky=N+S+E+W)
-Button(root, text="=", command=clear).grid(row=5, column=2, sticky=N+S+E+W)
-Button(root, text="/", command=clear).grid(row=5, column=3, sticky=N+S+E+W)
+Button(root, text="C", command=clear).grid(row=5, column=0, sticky=N+S+E+W)
+Button(root, text="0", command=lambda: get_number(0)).grid(
+    row=5, column=1, sticky=N+S+E+W)
+Button(root, text="=").grid(row=5, column=2, sticky=N+S+E+W)
+Button(root, text="/").grid(row=5, column=3, sticky=N+S+E+W)
 
 root.mainloop()
